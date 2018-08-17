@@ -1,4 +1,0 @@
-DFPlayer_Mini_mp3.c:13:6:DFPlayer_init	0	static
-DFPlayer_Mini_mp3.c:17:6:DFPlayer_setvolume	16	static
-DFPlayer_Mini_mp3.c:29:6:DFPlayer_playmp3	16	static
-DFPlayer_Mini_mp3.c:41:6:DFPlayer_stopmp3	16	static
