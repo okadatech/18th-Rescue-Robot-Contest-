@@ -1,0 +1,52 @@
+/*
+ * CCS811.c
+ *
+ *  Created on: 2017/10/15
+ *      Author: okada_tech
+ */
+
+
+#include "CCS811.h"
+
+
+void CCS811_init(I2C_HandleTypeDef *handler){
+	uint8_t cmd[1];
+	 CCS811_I2C = handler;
+	 cmd[0]=0xF4;
+	 HAL_I2C_Master_Transmit(CCS811_I2C,CCS811addr,(uint8_t*)cmd,1,0xf);
+	 cmd[0]=0x10;
+	 HAL_I2C_Mem_Write(CCS811_I2C,CCS811addr,0x01,I2C_MEMADD_SIZE_8BIT,(uint8_t*)cmd,1,0xf);
+}
+
+uint16_t CCS811_CO2_get(){
+	uint16_t data[1]={0};
+	uint8_t tempdata[8]={0};
+    HAL_I2C_Mem_Read(CCS811_I2C,CCS811addr ,0x02,I2C_MEMADD_SIZE_8BIT,(uint8_t*)tempdata,8,0xF);
+    data[0]=(tempdata[0]<<8)+tempdata[1];
+	return data[0];
+}
+
+uint16_t CCS811_TVOCs_get(){
+	uint16_t data[1]={0};
+	uint8_t tempdata[8]={0};
+    HAL_I2C_Mem_Read(CCS811_I2C,CCS811addr ,0x02,I2C_MEMADD_SIZE_8BIT,(uint8_t*)tempdata,8,0xF);
+    data[0]=(tempdata[2]<<8)+tempdata[3];
+	return data[0];
+}
+
+uint8_t environment_get(){
+	uint8_t returntemp[2]={0,0};
+	uint16_t data[2]={0};
+	uint8_t tempdata[8]={0};
+    HAL_I2C_Mem_Read(CCS811_I2C,CCS811addr ,0x02,I2C_MEMADD_SIZE_8BIT,(uint8_t*)tempdata,8,0xF);
+    data[0]=(tempdata[0]<<8)+tempdata[1];
+    data[1]=(tempdata[2]<<8)+tempdata[3];
+    if(data[0]>2000){
+    	if(data[0]>55000){returntemp[0]=0;}
+    	else{returntemp[0]=1;}
+    }
+    else{returntemp[0]=0;}
+    if(data[1]>800){returntemp[1]=1;}
+    else{returntemp[1]=0;}
+	return (returntemp[0]+returntemp[1]*2);
+}

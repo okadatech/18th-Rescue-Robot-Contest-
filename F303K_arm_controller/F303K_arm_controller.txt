@@ -1,0 +1,76 @@
+Configuration	F303K_arm_controller
+STM32CubeMX 	4.23.0
+Date	03/23/2018
+MCU	STM32F303K8Tx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+ADC1	IN1 Single-ended	ADC1_IN1	PA0
+ADC1	IN2 Single-ended	ADC1_IN2	PA1
+ADC2	IN1 Single-ended	ADC2_IN1	PA4
+ADC2	IN2 Single-ended	ADC2_IN2	PA5
+ADC2	IN3 Single-ended	ADC2_IN3	PA6
+ADC2	IN4 Single-ended	ADC2_IN4	PA7
+RCC	Crystal/Ceramic Resonator	RCC_OSC_IN	PF0 / OSC_IN
+RCC	Crystal/Ceramic Resonator	RCC_OSC_OUT	PF1 / OSC_OUT
+SYS	Serial Wire	SYS_JTCK-SWCLK	PA14
+SYS	Serial Wire	SYS_JTMS-SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+USART1	Asynchronous	USART1_RX	PA10
+USART1	Asynchronous	USART1_TX	PA9
+USART2	Asynchronous	USART2_RX	PA15
+USART2	Asynchronous	USART2_TX	PA2
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+2	PF0 / OSC_IN	RCC_OSC_IN	
+3	PF1 / OSC_OUT	RCC_OSC_OUT	
+6	PA0	ADC1_IN1	
+7	PA1	ADC1_IN2	
+8	PA2	USART2_TX	
+9	PA3	GPIO_Input	
+10	PA4	ADC2_IN1	
+11	PA5	ADC2_IN2	
+12	PA6	ADC2_IN3	
+13	PA7	ADC2_IN4	
+15	PB1	GPIO_Input	
+18	PA8	GPIO_Output	
+19	PA9	USART1_TX	
+20	PA10	USART1_RX	
+21	PA11	GPIO_Output	
+22	PA12	GPIO_Output	
+23	PA13	SYS_JTMS-SWDIO	
+24	PA14	SYS_JTCK-SWCLK	
+25	PA15	USART2_RX	
+26	PB3	GPIO_Output	
+27	PB4	GPIO_Output	
+
+
+
+SOFTWARE PROJECT
+
+Project Settings : 
+Project Name : F303K_arm_controller
+Project Folder : C:\Users\ryouma\OneDrive\ロボットファクトリー\18回レスコン\組み込み\F303K_arm_controller
+Toolchain / IDE : TrueSTUDIO
+Firmware Package Name and Version : STM32Cube FW_F3 V1.9.0
+
+
+Code Generation Settings : 
+STM32Cube Firmware Library Package : Copy only the necessary library files
+Generate peripheral initialization as a pair of '.c/.h' files per peripheral : Yes
+Backup previously generated files when re-generating : No
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : No
+
+
+Toolchains Settings : 
+Compiler Optimizations : Balanced Size/Speed
+
+
+
+
+
+

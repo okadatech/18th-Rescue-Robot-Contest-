@@ -1,0 +1,11 @@
+13:26:57 **** Rebuild of configuration Debug for project F303K_T_Rex ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F303x8 -I../Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Src\xprintf.o ..\..\F446_T-Rex_main\Src\xprintf.c 
+In file included from ..\..\F446_T-Rex_main\Src\xprintf.c:14:0:
+..\..\F446_T-Rex_main\Src\xprintf.h:19:27: fatal error: stm32f4xx_hal.h: No such file or directory
+ #include "stm32f4xx_hal.h"
+                           ^
+compilation terminated.
+
+13:26:58 Build Finished (took 1s.76ms)
+

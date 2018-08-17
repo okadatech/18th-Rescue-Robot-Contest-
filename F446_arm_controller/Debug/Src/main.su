@@ -1,0 +1,4 @@
+main.c:80:5:int_sort	0	static
+main.c:317:6:SystemClock_Config	96	static
+main.c:88:5:main	56	static
+main.c:388:6:_Error_Handler	0	static

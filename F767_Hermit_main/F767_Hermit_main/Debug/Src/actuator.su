@@ -1,0 +1,17 @@
+actuator.c:72:6:servo	16	static
+actuator.c:105:6:motor2	16	static
+actuator.c:125:6:motor1	16	static
+actuator.c:145:6:motor4	16	static
+actuator.c:165:6:motor3	16	static
+actuator.c:186:5:Synchronize1	24	static
+actuator.c:202:5:ics_set_pos1	16	static
+actuator.c:15:6:Rarm	40	static
+actuator.c:225:5:ics_set_st1	16	static
+actuator.c:246:5:ics_set_sp1	16	static
+actuator.c:267:5:Synchronize2	24	static
+actuator.c:283:5:ics_set_pos2	16	static
+actuator.c:43:6:Larm	40	static
+actuator.c:306:5:ics_set_st2	16	static
+actuator.c:327:5:ics_set_sp2	16	static
+actuator.c:348:6:beep	24	static
+actuator.c:357:6:map_a	8	static

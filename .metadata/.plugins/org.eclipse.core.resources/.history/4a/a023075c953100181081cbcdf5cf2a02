@@ -1,0 +1,947 @@
+/*
+ * mecanum.c
+ *
+ *  Created on: 2017/11/05
+ *      Author: okada_tech
+ */
+
+
+#include "mecanum.h"
+
+void motor_move(uint8_t comand,uint8_t dig1,uint8_t dig2,uint8_t power1a,uint8_t power2a){
+		  power=(power1a-1)*(power2a-1);
+		  if(power<0){power=0;}
+		  if(power1a==0){power=0;}
+		  digree=((dig1<<8)+dig2)-1000;
+		  if(digree<0){digree=0;}
+
+			/*
+				 100;8•ûˆÊ@•ûˆÊC³‚ ‚è
+				 250;8•ûˆÊ@•ûˆÊC³‚È‚µ
+				 150;¶‰ñ“]
+				 200;‰E‰ñ“]
+				 50;360“x@C³‚È‚µ
+				 125;360“x@•ûˆÊC³‚ ‚è
+				  */
+		  switch(comand){
+		  case 50:
+			  if(digree>=0 && digree<=360){
+				  if(digree>=0 && digree<=45){
+					if(digtemp!=0){
+							motor1(0,0);
+							motor2(0,0);
+							motor3(0,0);
+							motor4(0,0);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+							xprintf("bleak now\r\n");
+							HAL_Delay(bleak_time);
+					}
+					  power2=(float)arm_sin_f32((45-digree)*M_PI/180)*power;
+					  power1=(float)arm_sin_f32((135-digree)*M_PI/180)*power;
+					  power4=(float)arm_sin_f32((225-digree)*M_PI/180)*-1*power;
+					  power3=(float)arm_sin_f32((315-digree)*M_PI/180)*-1*power;
+					  temp1=max(power1,power2);
+					  temp2=max(power3,temp1);
+					  y=max(power4,temp2);
+					  power1=power1*((float)power/y);
+					  power2=power2*((float)power/y);
+					  power3=power3*((float)power/y);
+					  power4=power4*((float)power/y);
+					motor1(0,power1);
+					motor2(0,power2);
+					motor3(0,power3);
+					motor4(0,power4);
+					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+					  digtemp=0;
+				  }
+				  else if(digree>45 && digree<=90){
+					  if(digtemp!=90){
+						  motor1(0,0);
+						  motor2(0,0);
+						  motor3(0,0);
+						  motor4(0,0);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+						xprintf("bleak now\r\n");
+						  HAL_Delay(bleak_time);
+					  }
+					  power2=(float)arm_sin_f32((digree-45)*M_PI/180)*power;
+					  power1=(float)arm_sin_f32((135-digree)*M_PI/180)*power;
+					  power4=(float)arm_sin_f32((225-digree)*M_PI/180)*power;
+					  power3=(float)arm_sin_f32((315-digree)*M_PI/180)*-1*power;
+					  temp1=max(power1,power2);
+					  temp2=max(power3,temp1);
+					  y=max(power4,temp2);
+					  power1=power1*((float)power/y);
+					  power2=power2*((float)power/y);
+					  power3=power3*((float)power/y);
+					  power4=power4*((float)power/y);
+					  motor1(0,power1);
+					  motor2(power2,0);
+					  motor3(0,power3);
+					  motor4(power4,0);
+						HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+					  digtemp=90;
+				  }
+				  else if(digree>90 && digree<=135){
+					  if(digtemp!=90){
+						  motor1(0,0);
+						  motor2(0,0);
+						  motor3(0,0);
+						  motor4(0,0);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+						xprintf("bleak now\r\n");
+						  HAL_Delay(bleak_time);
+					  }
+					  power2=(float)arm_sin_f32((digree-45)*M_PI/180)*power;
+					  power1=(float)arm_sin_f32((135-digree)*M_PI/180)*power;
+					  power4=(float)arm_sin_f32((225-digree)*M_PI/180)*power;
+					  power3=(float)arm_sin_f32((315-digree)*M_PI/180)*-1*power;
+					  temp1=max(power1,power2);
+					  temp2=max(power3,temp1);
+					  y=max(power4,temp2);
+					  power1=power1*((float)power/y);
+					  power2=power2*((float)power/y);
+					  power3=power3*((float)power/y);
+					  power4=power4*((float)power/y);
+					  motor1(0,power1);
+					  motor2(power2,0);
+					  motor3(0,power3);
+					  motor4(power4,0);
+						HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+					  digtemp=90;
+				  }
+				  else if(digree>135 && digree<=180){
+					  if(digtemp!=180){
+						  motor1(0,0);
+						  motor2(0,0);
+						  motor3(0,0);
+						  motor4(0,0);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+						xprintf("bleak now\r\n");
+						  HAL_Delay(bleak_time);
+					  }
+					  power2=(float)arm_sin_f32((digree-45)*M_PI/180)*power;
+					  power1=(float)arm_sin_f32((digree-135)*M_PI/180)*power;
+					  power4=(float)arm_sin_f32((225-digree)*M_PI/180)*power;
+					  power3=(float)arm_sin_f32((315-digree)*M_PI/180)*power;
+					  temp1=max(power1,power2);
+					  temp2=max(power3,temp1);
+					  y=max(power4,temp2);
+					  power1=power1*((float)power/y);
+					  power2=power2*((float)power/y);
+					  power3=power3*((float)power/y);
+					  power4=power4*((float)power/y);
+					  motor1(power1,0);
+					  motor2(power2,0);
+					  motor3(power3,0);
+					  motor4(power4,0);
+						HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+					  digtemp=180;
+				  }
+				  else if(digree>180 && digree<=225){
+					  if(digtemp!=180){
+						  motor1(0,0);
+						  motor2(0,0);
+						  motor3(0,0);
+						  motor4(0,0);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+						xprintf("bleak now\r\n");
+						  HAL_Delay(bleak_time);
+					  }
+					  power2=(float)arm_sin_f32((digree-45)*M_PI/180)*power;
+					  power1=(float)arm_sin_f32((digree-135)*M_PI/180)*power;
+					  power4=(float)arm_sin_f32((225-digree)*M_PI/180)*power;
+					  power3=(float)arm_sin_f32((315-digree)*M_PI/180)*power;
+					  temp1=max(power1,power2);
+					  temp2=max(power3,temp1);
+					  y=max(power4,temp2);
+					  power1=power1*((float)power/y);
+					  power2=power2*((float)power/y);
+					  power3=power3*((float)power/y);
+					  power4=power4*((float)power/y);
+					  motor1(power1,0);
+					  motor2(power2,0);
+					  motor3(power3,0);
+					  motor4(power4,0);
+						HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+					  digtemp=180;
+				  }
+				  else if(digree>225 && digree<=270){
+					  if(digtemp!=270){
+						  motor1(0,0);
+						  motor2(0,0);
+						  motor3(0,0);
+						  motor4(0,0);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+						xprintf("bleak now\r\n");
+						  HAL_Delay(bleak_time);
+					  }
+					  power2=(float)arm_sin_f32((digree-45)*M_PI/180)*-1*power;
+					  power1=(float)arm_sin_f32((digree-135)*M_PI/180)*power;
+					  power4=(float)arm_sin_f32((digree-225)*M_PI/180)*power;
+					  power3=(float)arm_sin_f32((315-digree)*M_PI/180)*power;
+					  temp1=max(power1,power2);
+					  temp2=max(power3,temp1);
+					  y=max(power4,temp2);
+					  power1=power1*((float)power/y);
+					  power2=power2*((float)power/y);
+					  power3=power3*((float)power/y);
+					  power4=power4*((float)power/y);
+					  motor1(power1,0);
+					  motor2(0,power2);
+					  motor3(power3,0);
+					  motor4(0,power4);
+						HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+					  digtemp=270;
+				  }
+				  else if(digree>270 && digree<=315){
+					  if(digtemp!=270){
+						  motor1(0,0);
+						  motor2(0,0);
+						  motor3(0,0);
+						  motor4(0,0);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+						xprintf("bleak now\r\n");
+						  HAL_Delay(bleak_time);
+					}
+					  power2=(float)arm_sin_f32((digree-45)*M_PI/180)*-1*power;
+					  power1=(float)arm_sin_f32((digree-135)*M_PI/180)*power;
+					  power4=(float)arm_sin_f32((digree-225)*M_PI/180)*power;
+					  power3=(float)arm_sin_f32((315-digree)*M_PI/180)*power;
+					  temp1=max(power1,power2);
+					  temp2=max(power3,temp1);
+					  y=max(power4,temp2);
+					  power1=power1*((float)power/y);
+					  power2=power2*((float)power/y);
+					  power3=power3*((float)power/y);
+					  power4=power4*((float)power/y);
+					  motor1(power1,0);
+					  motor2(0,power2);
+					  motor3(power3,0);
+					  motor4(0,power4);
+						HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+					  digtemp=270;
+				  }
+				  else if(digree>315 && digree<=360){
+					  if(digtemp!=0){
+						  motor1(0,0);
+						  motor2(0,0);
+						  motor3(0,0);
+						  motor4(0,0);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+						xprintf("bleak now\r\n");
+						  HAL_Delay(bleak_time);
+					  }
+					  power2=(float)arm_sin_f32((digree-45)*M_PI/180)*-1*power;
+					  power1=(float)arm_sin_f32((digree-135)*M_PI/180)*-1*power;
+					  power4=(float)arm_sin_f32((digree-225)*M_PI/180)*power;
+					  power3=(float)arm_sin_f32((digree-315)*M_PI/180)*power;
+					  temp1=max(power1,power2);
+					  temp2=max(power3,temp1);
+					  y=max(power4,temp2);
+					  power1=power1*((float)power/y);
+					  power2=power2*((float)power/y);
+					  power3=power3*((float)power/y);
+					  power4=power4*((float)power/y);
+					  motor1(0,power1);
+					  motor2(0,power2);
+					  motor3(0,power3);
+					  motor4(0,power4);
+						HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+					  digtemp=0;
+				  	  }
+			  }
+			  else{
+				  motor1(0,0);
+				  motor2(0,0);
+				  motor3(0,0);
+				  motor4(0,0);
+					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+				  //digtemp=1000;
+			  }
+		  break;
+
+		  case 125:
+				HOUI=JY901_yaw_get(HOUI_def);
+				if(HOUI>= 5 && HOUI<=355){
+					motor1(0,0);
+					motor2(0,0);
+					motor3(0,0);
+					motor4(0,0);
+					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+					HAL_Delay(50);
+					while(HOUI>=5 && HOUI<=355){
+					HOUI=JY901_yaw_get(HOUI_def);
+					if(HOUI<180){
+					motor2(0,(int)map_m(HOUI,0,180,200,500));
+					motor1(0,(int)map_m(HOUI,0,180,200,500));
+					motor4((int)map_m(HOUI,0,180,200,500),0);
+					motor3((int)map_m(HOUI,0,180,200,500),0);
+					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+					xprintf("LS now");
+					xprintf(" speed= %d\r\n",(int)map_m(HOUI,0,180,70,300));
+					}
+					else{
+						motor2((int)map_m(HOUI,359,180,200,500),0);
+						motor1((int)map_m(HOUI,359,180,200,500),0);
+						motor4(0,(int)map_m(HOUI,359,180,200,500));
+						motor3(0,(int)map_m(HOUI,359,180,200,500));
+						HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+						xprintf("RS now");
+						xprintf(" speed= %d\r\n",(int)map_m(HOUI,359,180,70,300));
+					}
+					  HAL_IWDG_Refresh(&hiwdg);
+					}
+					motor1(0,0);
+					motor2(0,0);
+					motor3(0,0);
+					motor4(0,0);
+					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+					HAL_Delay(50);
+				}
+				  if(digree>=0 && digree<=360){
+					  if(digree>=0 && digree<=45){
+						if(digtemp!=0){
+								motor1(0,0);
+								motor2(0,0);
+								motor3(0,0);
+								motor4(0,0);
+								HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+								xprintf("bleak now\r\n");
+								HAL_Delay(bleak_time);
+						}
+						  power2=(float)arm_sin_f32((45-digree)*M_PI/180)*power;
+						  power1=(float)arm_sin_f32((135-digree)*M_PI/180)*power;
+						  power4=(float)arm_sin_f32((225-digree)*M_PI/180)*-1*power;
+						  power3=(float)arm_sin_f32((315-digree)*M_PI/180)*-1*power;
+						  temp1=max(power1,power2);
+						  temp2=max(power3,temp1);
+						  y=max(power4,temp2);
+						  power1=power1*((float)power/y);
+						  power2=power2*((float)power/y);
+						  power3=power3*((float)power/y);
+						  power4=power4*((float)power/y);
+						motor1(0,power1);
+						motor2(0,power2);
+						motor3(0,power3);
+						motor4(0,power4);
+						HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+						  digtemp=0;
+					  }
+					  else if(digree>45 && digree<=90){
+						  if(digtemp!=90){
+							  motor1(0,0);
+							  motor2(0,0);
+							  motor3(0,0);
+							  motor4(0,0);
+								HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+							xprintf("bleak now\r\n");
+							  HAL_Delay(bleak_time);
+						  }
+						  power2=(float)arm_sin_f32((digree-45)*M_PI/180)*power;
+						  power1=(float)arm_sin_f32((135-digree)*M_PI/180)*power;
+						  power4=(float)arm_sin_f32((225-digree)*M_PI/180)*power;
+						  power3=(float)arm_sin_f32((315-digree)*M_PI/180)*-1*power;
+						  temp1=max(power1,power2);
+						  temp2=max(power3,temp1);
+						  y=max(power4,temp2);
+						  power1=power1*((float)power/y);
+						  power2=power2*((float)power/y);
+						  power3=power3*((float)power/y);
+						  power4=power4*((float)power/y);
+						  motor1(0,power1);
+						  motor2(power2,0);
+						  motor3(0,power3);
+						  motor4(power4,0);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+						  digtemp=90;
+					  }
+					  else if(digree>90 && digree<=135){
+						  if(digtemp!=90){
+							  motor1(0,0);
+							  motor2(0,0);
+							  motor3(0,0);
+							  motor4(0,0);
+								HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+							xprintf("bleak now\r\n");
+							  HAL_Delay(bleak_time);
+						  }
+						  power2=(float)arm_sin_f32((digree-45)*M_PI/180)*power;
+						  power1=(float)arm_sin_f32((135-digree)*M_PI/180)*power;
+						  power4=(float)arm_sin_f32((225-digree)*M_PI/180)*power;
+						  power3=(float)arm_sin_f32((315-digree)*M_PI/180)*-1*power;
+						  temp1=max(power1,power2);
+						  temp2=max(power3,temp1);
+						  y=max(power4,temp2);
+						  power1=power1*((float)power/y);
+						  power2=power2*((float)power/y);
+						  power3=power3*((float)power/y);
+						  power4=power4*((float)power/y);
+						  motor1(0,power1);
+						  motor2(power2,0);
+						  motor3(0,power3);
+						  motor4(power4,0);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+						  digtemp=90;
+					  }
+					  else if(digree>135 && digree<=180){
+						  if(digtemp!=180){
+							  motor1(0,0);
+							  motor2(0,0);
+							  motor3(0,0);
+							  motor4(0,0);
+								HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+							xprintf("bleak now\r\n");
+							  HAL_Delay(bleak_time);
+						  }
+						  power2=(float)arm_sin_f32((digree-45)*M_PI/180)*power;
+						  power1=(float)arm_sin_f32((digree-135)*M_PI/180)*power;
+						  power4=(float)arm_sin_f32((225-digree)*M_PI/180)*power;
+						  power3=(float)arm_sin_f32((315-digree)*M_PI/180)*power;
+						  temp1=max(power1,power2);
+						  temp2=max(power3,temp1);
+						  y=max(power4,temp2);
+						  power1=power1*((float)power/y);
+						  power2=power2*((float)power/y);
+						  power3=power3*((float)power/y);
+						  power4=power4*((float)power/y);
+						  motor1(power1,0);
+						  motor2(power2,0);
+						  motor3(power3,0);
+						  motor4(power4,0);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+						  digtemp=180;
+					  }
+					  else if(digree>180 && digree<=225){
+						  if(digtemp!=180){
+							  motor1(0,0);
+							  motor2(0,0);
+							  motor3(0,0);
+							  motor4(0,0);
+								HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+							xprintf("bleak now\r\n");
+							  HAL_Delay(bleak_time);
+						  }
+						  power2=(float)arm_sin_f32((digree-45)*M_PI/180)*power;
+						  power1=(float)arm_sin_f32((digree-135)*M_PI/180)*power;
+						  power4=(float)arm_sin_f32((225-digree)*M_PI/180)*power;
+						  power3=(float)arm_sin_f32((315-digree)*M_PI/180)*power;
+						  temp1=max(power1,power2);
+						  temp2=max(power3,temp1);
+						  y=max(power4,temp2);
+						  power1=power1*((float)power/y);
+						  power2=power2*((float)power/y);
+						  power3=power3*((float)power/y);
+						  power4=power4*((float)power/y);
+						  motor1(power1,0);
+						  motor2(power2,0);
+						  motor3(power3,0);
+						  motor4(power4,0);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+						  digtemp=180;
+					  }
+					  else if(digree>225 && digree<=270){
+						  if(digtemp!=270){
+							  motor1(0,0);
+							  motor2(0,0);
+							  motor3(0,0);
+							  motor4(0,0);
+								HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+							xprintf("bleak now\r\n");
+							  HAL_Delay(bleak_time);
+						  }
+						  power2=(float)arm_sin_f32((digree-45)*M_PI/180)*-1*power;
+						  power1=(float)arm_sin_f32((digree-135)*M_PI/180)*power;
+						  power4=(float)arm_sin_f32((digree-225)*M_PI/180)*power;
+						  power3=(float)arm_sin_f32((315-digree)*M_PI/180)*power;
+						  temp1=max(power1,power2);
+						  temp2=max(power3,temp1);
+						  y=max(power4,temp2);
+						  power1=power1*((float)power/y);
+						  power2=power2*((float)power/y);
+						  power3=power3*((float)power/y);
+						  power4=power4*((float)power/y);
+						  motor1(power1,0);
+						  motor2(0,power2);
+						  motor3(power3,0);
+						  motor4(0,power4);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+						  digtemp=270;
+					  }
+					  else if(digree>270 && digree<=315){
+						  if(digtemp!=270){
+							  motor1(0,0);
+							  motor2(0,0);
+							  motor3(0,0);
+							  motor4(0,0);
+								HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+							xprintf("bleak now\r\n");
+							  HAL_Delay(bleak_time);
+						}
+						  power2=(float)arm_sin_f32((digree-45)*M_PI/180)*-1*power;
+						  power1=(float)arm_sin_f32((digree-135)*M_PI/180)*power;
+						  power4=(float)arm_sin_f32((digree-225)*M_PI/180)*power;
+						  power3=(float)arm_sin_f32((315-digree)*M_PI/180)*power;
+						  temp1=max(power1,power2);
+						  temp2=max(power3,temp1);
+						  y=max(power4,temp2);
+						  power1=power1*((float)power/y);
+						  power2=power2*((float)power/y);
+						  power3=power3*((float)power/y);
+						  power4=power4*((float)power/y);
+						  motor1(power1,0);
+						  motor2(0,power2);
+						  motor3(power3,0);
+						  motor4(0,power4);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+						  digtemp=270;
+					  }
+					  else if(digree>315 && digree<=360){
+						  if(digtemp!=0){
+							  motor1(0,0);
+							  motor2(0,0);
+							  motor3(0,0);
+							  motor4(0,0);
+								HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+							xprintf("bleak now\r\n");
+							  HAL_Delay(bleak_time);
+						  }
+						  power2=(float)arm_sin_f32((digree-45)*M_PI/180)*-1*power;
+						  power1=(float)arm_sin_f32((digree-135)*M_PI/180)*-1*power;
+						  power4=(float)arm_sin_f32((digree-225)*M_PI/180)*power;
+						  power3=(float)arm_sin_f32((digree-315)*M_PI/180)*power;
+						  temp1=max(power1,power2);
+						  temp2=max(power3,temp1);
+						  y=max(power4,temp2);
+						  power1=power1*((float)power/y);
+						  power2=power2*((float)power/y);
+						  power3=power3*((float)power/y);
+						  power4=power4*((float)power/y);
+						  motor1(0,power1);
+						  motor2(0,power2);
+						  motor3(0,power3);
+						  motor4(0,power4);
+							HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+						  digtemp=0;
+					  	  }
+				  }
+				else{
+					motor1(0,0);
+					motor2(0,0);
+					motor3(0,0);
+					motor4(0,0);
+					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+					//digtemp=1000;
+				}
+		  break;
+
+		  case 100:
+				HOUI=JY901_yaw_get(HOUI_def);
+		  	   if(HOUI>= 5 && HOUI<=355){
+		  		motor1(0,0);
+		  	    motor2(0,0);
+		  		motor3(0,0);
+		  		motor4(0,0);
+				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		  		HAL_Delay(50);
+		  	  while(HOUI>=5 && HOUI<=355){
+		  		HOUI=JY901_yaw_get(HOUI_def);
+		  	    if(HOUI<180){
+		  	 	motor1(0,(int)map_m(HOUI,0,180,200,500));
+		  	 	motor2(0,(int)map_m(HOUI,0,180,200,500));
+		  	 	motor3((int)map_m(HOUI,0,180,200,500),0);
+		  	 	motor4((int)map_m(HOUI,0,180,200,500),0);
+				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		  	 	xprintf("LS now");
+		  	 	xprintf(" speed= %d\r\n",(int)map_m(HOUI,0,180,70,300));
+		  	    }
+		  	    else{
+		  	    	motor1((int)map_m(HOUI,359,180,200,500),0);
+		  	    	motor2((int)map_m(HOUI,359,180,200,500),0);
+		  	    	motor3(0,(int)map_m(HOUI,359,180,200,500));
+		  	    	motor4(0,(int)map_m(HOUI,359,180,200,500));
+		  			HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		  	    	xprintf("RS now");
+		  	    	xprintf(" speed= %d\r\n",(int)map_m(HOUI,359,180,70,300));
+		  	    }
+		  	  HAL_IWDG_Refresh(&hiwdg);
+		  	  }
+				 motor1(0,0);
+				 motor2(0,0);
+				 motor3(0,0);
+				 motor4(0,0);
+					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+				 HAL_Delay(50);
+		  	  }
+
+		  	   else if(digree>=0 && digree<=360){
+		 		  if(digree<=23 || digree>=338){
+		 			if(digtemp!=0){
+		 					motor1(0,0);
+		 					motor2(0,0);
+		 					motor3(0,0);
+		 					motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 					xprintf("bleak now\r\n");
+		 					HAL_Delay(bleak_time);
+		 			}
+		 			motor1(0,power);
+		 			motor2(0,power);
+		 			motor3(0,power);
+		 			motor4(0,power);
+		 			HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=0;
+		 		  }
+		 		  else if(digree>23 && digree<=68){
+		 			  if(digtemp!=45){
+		 				  motor1(0,0);
+		 				  motor2(0,0);
+		 				  motor3(0,0);
+		 				  motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 				xprintf("bleak now\r\n");
+		 				  HAL_Delay(bleak_time);
+		 			  }
+		 			  motor1(0,power);
+		 			  motor2(0,0);
+		 			  motor3(0,power);
+		 			  motor4(0,0);
+		 				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=45;
+		 		  }
+		 		  else if(digree>68 && digree<=113){
+		 			  if(digtemp!=90){
+		 				  motor1(0,0);
+		 				  motor2(0,0);
+		 				  motor3(0,0);
+		 				  motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 				xprintf("bleak now\r\n");
+		 				  HAL_Delay(bleak_time);
+		 			  }
+		 			  motor1(0,power);
+		 			  motor2(power,0);
+		 			  motor3(0,power);
+		 			  motor4(power,0);
+		 				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=90;
+		 		  }
+		 		  else if(digree>113 && digree<=158){
+		 			  if(digtemp!=135){
+		 				  motor1(0,0);
+		 				  motor2(0,0);
+		 				  motor3(0,0);
+		 				  motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 				xprintf("bleak now\r\n");
+		 				  HAL_Delay(bleak_time);
+		 			  }
+		 			  motor1(0,0);
+		 			  motor2(power,0);
+		 			  motor3(0,0);
+		 			  motor4(power,0);
+		 				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=135;
+		 		  }
+		 		  else if(digree>158 && digree<=203){
+		 			  if(digtemp!=180){
+		 				  motor1(0,0);
+		 				  motor2(0,0);
+		 				  motor3(0,0);
+		 				  motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 				xprintf("bleak now\r\n");
+		 				  HAL_Delay(bleak_time);
+		 			  }
+		 			  motor1(power,0);
+		 			  motor2(power,0);
+		 			  motor3(power,0);
+		 			  motor4(power,0);
+		 				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=180;
+		 		  }
+		 		  else if(digree>203 && digree<=248){
+		 			  if(digtemp!=225){
+		 				  motor1(0,0);
+		 				  motor2(0,0);
+		 				  motor3(0,0);
+		 				  motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 				xprintf("bleak now\r\n");
+		 				  HAL_Delay(bleak_time);
+		 			  }
+		 			  motor1(power,0);
+		 			  motor2(0,0);
+		 			  motor3(power,0);
+		 			  motor4(0,0);
+		 				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=225;
+		 		  }
+		 		  else if(digree>248 && digree<=293){
+		 			  if(digtemp!=270){
+		 				  motor1(0,0);
+		 				  motor2(0,0);
+		 				  motor3(0,0);
+		 				  motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 				xprintf("bleak now\r\n");
+		 				  HAL_Delay(bleak_time);
+		 			  }
+		 			  motor1(power,0);
+		 			  motor2(0,power);
+		 			  motor3(power,0);
+		 			  motor4(0,power);
+		 				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=270;
+		 		  }
+		 		  else if(digree>293 && digree<=338){
+		 			  if(digtemp!=315){
+		 				  motor1(0,0);
+		 				  motor2(0,0);
+		 				  motor3(0,0);
+		 				  motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 				xprintf("bleak now\r\n");
+		 				  HAL_Delay(bleak_time);
+		 			  }
+		 			  motor1(0,0);
+		 			  motor2(0,power);
+		 			  motor3(0,0);
+		 			  motor4(0,power);
+		 				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=315;
+		 		  	  }
+		 	  }
+		 	  else{
+		 		  oled_puts("Running       ST");
+		 		  motor1(0,0);
+		 		  motor2(0,0);
+		 		  motor3(0,0);
+		 		  motor4(0,0);
+		 			HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 		  //digtemp=1000;
+		 	  }
+		  break;
+
+		  case 250:
+
+		  	    if(digree>=0 && digree<=360){
+		 		  if(digree<=23 || digree>=338){
+		 			if(digtemp!=0){
+		 					motor1(0,0);
+		 					motor2(0,0);
+		 					motor3(0,0);
+		 					motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 					xprintf("bleak now\r\n");
+		 					HAL_Delay(bleak_time);
+		 			}
+		 			motor1(0,power);
+		 			motor2(0,power);
+		 			motor3(0,power);
+		 			motor4(0,power);
+		 			HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=0;
+		 		  }
+		 		  else if(digree>23 && digree<=68){
+		 			  if(digtemp!=45){
+		 				  motor1(0,0);
+		 				  motor2(0,0);
+		 				  motor3(0,0);
+		 				  motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 				xprintf("bleak now\r\n");
+		 				  HAL_Delay(bleak_time);
+		 			  }
+		 			  motor1(0,power);
+		 			  motor2(0,0);
+		 			  motor3(0,power);
+		 			  motor4(0,0);
+		 				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=45;
+		 		  }
+		 		  else if(digree>68 && digree<=113){
+		 			  if(digtemp!=90){
+		 				  motor1(0,0);
+		 				  motor2(0,0);
+		 				  motor3(0,0);
+		 				  motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 				xprintf("bleak now\r\n");
+		 				  HAL_Delay(bleak_time);
+		 			  }
+		 			  motor1(0,power);
+		 			  motor2(power,0);
+		 			  motor3(0,power);
+		 			  motor4(power,0);
+		 				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=90;
+		 		  }
+		 		  else if(digree>113 && digree<=158){
+		 			  if(digtemp!=135){
+		 				  motor1(0,0);
+		 				  motor2(0,0);
+		 				  motor3(0,0);
+		 				  motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 				xprintf("bleak now\r\n");
+		 				  HAL_Delay(bleak_time);
+		 			  }
+		 			  motor1(0,0);
+		 			  motor2(power,0);
+		 			  motor3(0,0);
+		 			  motor4(power,0);
+		 				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=135;
+		 		  }
+		 		  else if(digree>158 && digree<=203){
+		 			  if(digtemp!=180){
+		 				  motor1(0,0);
+		 				  motor2(0,0);
+		 				  motor3(0,0);
+		 				  motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 				xprintf("bleak now\r\n");
+		 				  HAL_Delay(bleak_time);
+		 			  }
+		 			  motor1(power,0);
+		 			  motor2(power,0);
+		 			  motor3(power,0);
+		 			  motor4(power,0);
+		 				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=180;
+		 		  }
+		 		  else if(digree>203 && digree<=248){
+		 			  if(digtemp!=225){
+		 				  motor1(0,0);
+		 				  motor2(0,0);
+		 				  motor3(0,0);
+		 				  motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 				xprintf("bleak now\r\n");
+		 				  HAL_Delay(bleak_time);
+		 			  }
+		 			  motor1(power,0);
+		 			  motor2(0,0);
+		 			  motor3(power,0);
+		 			  motor4(0,0);
+		 				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=225;
+		 		  }
+		 		  else if(digree>248 && digree<=293){
+		 			  if(digtemp!=270){
+		 				  motor1(0,0);
+		 				  motor2(0,0);
+		 				  motor3(0,0);
+		 				  motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 				xprintf("bleak now\r\n");
+		 				  HAL_Delay(bleak_time);
+		 			  }
+		 			  motor1(power,0);
+		 			  motor2(0,power);
+		 			  motor3(power,0);
+		 			  motor4(0,power);
+		 				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=270;
+		 		  }
+		 		  else if(digree>293 && digree<=338){
+		 			  if(digtemp!=315){
+		 				  motor1(0,0);
+		 				  motor2(0,0);
+		 				  motor3(0,0);
+		 				  motor4(0,0);
+		 					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+		 				xprintf("bleak now\r\n");
+		 				  HAL_Delay(bleak_time);
+		 			  }
+		 			  motor1(0,0);
+		 			  motor2(0,power);
+		 			  motor3(0,0);
+		 			  motor4(0,power);
+		 				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+		 			  digtemp=315;
+		 		  	  }
+		 	  }
+			  else{
+				  motor1(0,0);
+				  motor2(0,0);
+				  motor3(0,0);
+				  motor4(0,0);
+					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+				 // digtemp=1000;
+			  }
+
+		  break;
+
+		  case 150:
+				//LS
+				if(digtemp!=2000){
+					motor1(0,0);
+					motor2(0,0);
+					motor3(0,0);
+					motor4(0,0);
+					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+					HAL_Delay(bleak_time);
+				}
+
+				motor1(0,power);
+				motor2(0,power);
+				motor3(power,0);
+				motor4(power,0);
+				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+				digtemp=2000;
+				HOUI_def=JY901_def_set();
+		  break;
+
+		  case 200:
+				//RS
+				if(digtemp!=3000){
+					motor1(0,0);
+					motor2(0,0);
+					motor3(0,0);
+					motor4(0,0);
+					HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+					HAL_Delay(bleak_time);
+				}
+				motor1(power,0);
+				motor2(power,0);
+				motor3(0,power);
+				motor4(0,power);
+				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,1);
+				digtemp=3000;
+				HOUI_def=JY901_def_set();
+		  break;
+
+		  default:
+				motor1(0,0);
+			    motor2(0,0);
+			    motor3(0,0);
+			    motor4(0,0);
+				HAL_GPIO_WritePin(GPIOE,GPIO_PIN_10,0);
+				//digtemp=1000;
+		  break;
+		  }
+	}
+
+void printLCD(){
+	if (digree >= 0 && digree <= 360) {
+		if (digree <= 23 || digree >= 338) {oled_puts("Running   FD");}
+		else if (digree>23 && digree <= 68)   {oled_puts("Running   RF");}
+		else if (digree>68 && digree <= 113)  {oled_puts("Running   Ri");}
+		else if (digree>113 && digree <= 158) {oled_puts("Running   RB");}
+		else if (digree>158 && digree <= 203) {oled_puts("Running   BK");}
+		else if (digree>203 && digree <= 248) {oled_puts("Running   LB");}
+		else if (digree>248 && digree <= 293) {oled_puts("Running   Le");}
+		else if (digree>293 && digree <= 338) {oled_puts("Running   LF");}
+}
+else{oled_puts("Running  ST");}
+}
+
+int max(int a,int b){
+	if(a>b){return a;}
+	else{return b;}
+}
+long map_m(long x, long in_min, long in_max, long out_min, long out_max) {
+	  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+	}

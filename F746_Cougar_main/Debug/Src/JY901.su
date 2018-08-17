@@ -1,0 +1,4 @@
+JY901.c:10:6:JY901_init	0	static
+JY901.c:19:6:JY901_calibration	32	static
+JY901.c:62:5:JY901_def_set	32	static
+JY901.c:76:5:JY901_yaw_get	32	static

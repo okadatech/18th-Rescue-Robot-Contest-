@@ -1,0 +1,17 @@
+12:03:05 **** Incremental Build of configuration Debug for project F767_Lapin_main ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-d16 -std=gnu11 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F767xx -I../Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Src\main.o ..\Src\main.c 
+arm-atollic-eabi-gcc -o F767_Lapin_main.elf Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_cortex.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dma.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dma_ex.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_flash.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_flash_ex.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_gpio.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_i2c.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_i2c_ex.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_iwdg.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_pwr.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_pwr_ex.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rcc.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rcc_ex.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_tim.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_tim_ex.o Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_uart.o Src\DFPlayer_Mini_mp3.o Src\JY901.o Src\actuator.o Src\crawler.o Src\dma.o Src\gpio.o Src\i2c.o Src\i2c_lcd.o Src\iwdg.o Src\main.o Src\stm32f7xx_hal_msp.o Src\stm32f7xx_it.o Src\system_stm32f7xx.o Src\tim.o Src\usart.o Src\xprintf.o startup\startup_stm32f767xx.o -l:libarm_cortexM7lfdp_math.a -mthumb -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-d16 -T../STM32F767ZI_FLASH.ld -specs=nosys.specs -static -LC:\Users\ryouma\OneDrive\ロボットファクトリー\18回レスコン\組み込み\F767_Lapin_main -Wl,-Map=F767_Lapin_main.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 8.1.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 8.1.0\Tools\arm-atollic-reports.jar sizeinfo list F767_Lapin_main.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  23788	    128	   4660	  28576	   6fa0	F767_Lapin_main.elf
+Print size information done
+Generate listing file
+Output sent to: F767_Lapin_main.list
+Generate listing file done
+Generate build reports done
+
+12:03:07 Build Finished (took 1s.855ms)
+

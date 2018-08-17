@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\ryouma\OneDrive\ロボットファクトリー\18回レスコン"/>
+		<item value="C:\Users\ryouma\OneDrive\ロボットファクトリー\18回レスコン\組み込み"/>
+		<item value="C:\Users\ryouma\Downloads\F446-place_sw4stm32_nucleo_f446re"/>
+		<item value="C:\Users\ryouma\Documents\STMicroelectronics\ADC_test"/>
+		<item value="C:\Users\ryouma\Documents\STMicroelectronics\F446_test"/>
+	</list>
+	<section name="ExternalProjectImportWizard">
+		<item value="true" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
+			<item value="C:\Users\ryouma\Documents\Atollic_HAL_test"/>
+			<item value="C:\Users\ryouma\OneDrive\ロボットファクトリー\18回レスコン\組み込み"/>
+			<item value="C:\Users\ryouma\Documents\STMicroelectronics\F429_PWM"/>
+			<item value="C:\Users\ryouma\Documents\Atollic\ADC_Filter_test"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\ryouma\OneDrive\ロボットファクトリー\18回レスコン\組み込み\F746_FreeRTOS_test.zip"/>
+			<item value=""/>
+			<item value="C:\Users\ryouma\OneDrive\ロボットファクトリー\18回レスコン\組み込み\インクルードフォルダ\F303K_T_Rex.zip"/>
+		</list>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="490" key="DIALOG_X_ORIGIN"/>
+		<item value="239" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

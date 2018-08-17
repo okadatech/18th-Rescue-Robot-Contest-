@@ -1,0 +1,15 @@
+main-50610007-pc.c:977:6:_Error_Handler.constprop	8	static
+main-50610007-pc.c:515:6:SystemClock_Config	240	static
+main-50610007-pc.c:666:6:sens_test	96	static
+main-50610007-pc.c:701:6:comu_test	16	static
+main-50610007-pc.c:768:6:armtest_mode	32	static
+main-50610007-pc.c:805:6:demo_mode	40	static
+main-50610007-pc.c:858:6:Calibration	32	static
+main-50610007-pc.c:901:6:printLCD	0	static
+main-50610007-pc.c:598:6:main_run	40	static
+main-50610007-pc.c:726:6:motortest_mode	16	static
+main-50610007-pc.c:109:5:main	48	static
+main-50610007-pc.c:915:6:HAL_TIM_PeriodElapsedCallback	16	static
+main-50610007-pc.c:930:6:HAL_UART_RxCpltCallback	12	static
+main-50610007-pc.c:965:6:map	8	static
+main-50610007-pc.c:977:6:_Error_Handler	8	static

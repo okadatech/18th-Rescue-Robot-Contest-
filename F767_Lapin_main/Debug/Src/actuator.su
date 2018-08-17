@@ -1,0 +1,7 @@
+actuator.c:11:5:func	16	static
+actuator.c:30:6:pwm	24	static
+actuator.c:45:6:slider	24	static
+actuator.c:163:6:servo	56	static
+actuator.c:208:5:encordermotor1	24	static
+actuator.c:321:6:beep	24	static
+actuator.c:330:6:map_a	4	static

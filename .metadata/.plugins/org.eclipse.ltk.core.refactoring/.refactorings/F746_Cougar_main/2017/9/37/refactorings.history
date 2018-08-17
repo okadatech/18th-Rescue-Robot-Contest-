@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="リソース名を &apos;F746_Cougar_main/Src/i2c_lcd(2).c&apos; から &apos;i2c_lcd.c&apos; に変更します" description="リソース &apos;i2c_lcd(2).c&apos; の名前変更" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/i2c_lcd(2).c" name="i2c_lcd.c" stamp="1505134543211" updateReferences="true"/>&#x0A;<refactoring comment="リソース名を &apos;F746_Cougar_main/Src/i2c_lcd(2).h&apos; から &apos;i2c_lcd.h&apos; に変更します" description="リソース &apos;i2c_lcd(2).h&apos; の名前変更" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/i2c_lcd(2).h" name="i2c_lcd.h" stamp="1505134567920" updateReferences="true"/>
+</session>

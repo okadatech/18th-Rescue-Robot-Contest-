@@ -1,0 +1,13 @@
+i2c_lcd.c:73:6:oled_power.part.0	32	static
+i2c_lcd.c:19:6:oled_put	24	static
+i2c_lcd.c:26:6:oled_puts	40	static
+i2c_lcd.c:37:6:oled_writeCommand	24	static
+i2c_lcd.c:44:6:oled_delay_puts	48	static
+i2c_lcd.c:53:6:oled_contrast	40	static
+i2c_lcd.c:69:6:oled_clear	32	static
+i2c_lcd.c:73:6:oled_power	32	static
+i2c_lcd.c:85:6:oled_display_setting	32	static
+i2c_lcd.c:105:6:oled_setcursor	32	static
+i2c_lcd.c:117:6:oled_returnhome	32	static
+i2c_lcd.c:63:6:oled_init	8	static
+i2c_lcd.c:11:6:oled_i2c_to_oled	8	static

@@ -1,0 +1,3 @@
+crawler.c:382:6:recuber	24	static
+crawler.c:9:6:motor_move	24	static
+crawler.c:431:6:map_crawler	4	static

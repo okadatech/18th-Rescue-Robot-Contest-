@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="575" key="DIALOG_X_ORIGIN"/>
+		<item value="355" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="Rxdetatemp" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="Rxdetatemp"/>
+			<item value="servo"/>
+			<item value="map"/>
+			<item value="CCS811_get"/>
+			<item value="environment"/>
+			<item value="enviroment"/>
+			<item value="stopmp3"/>
+			<item value="playmp3"/>
+		</list>
+		<list key="replacehistory">
+			<item value="map_m"/>
+			<item value="map_crawler"/>
+			<item value="environment_get"/>
+			<item value="CCS811_get"/>
+			<item value="map_a"/>
+			<item value="DFPlayer_stopmp3"/>
+			<item value="DFPlayer_playmp3"/>
+			<item value="DFPlayer_setvolume"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="459" key="DIALOG_WIDTH"/>
+		<item value="1|Yu Gothic UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Yu Gothic UI" key="DIALOG_FONT_NAME"/>
+		<item value="523" key="DIALOG_HEIGHT"/>
+		<item value="991" key="DIALOG_X_ORIGIN"/>
+		<item value="176" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

@@ -1,0 +1,3 @@
+mecanum.c:11:6:motor_move	48	static
+mecanum.c:1549:5:max	0	static
+mecanum.c:1553:6:map_m	8	static

@@ -1,0 +1,13 @@
+main.c:832:6:_Error_Handler.constprop	8	static
+main.c:97:6:HAL_TIM_PeriodElapsedCallback	16	static
+main.c:482:6:SystemClock_Config	224	static
+main.c:556:6:main_run	48	static
+main.c:613:6:sens_test	48	static
+main.c:628:6:comu_test	40	static
+main.c:644:6:test_mode	16	static
+main.c:677:6:demo_mode	56	static
+main.c:727:6:calib_mode	40	static
+main.c:111:5:main	64	static
+main.c:778:6:map	8	static
+main.c:784:6:HAL_UART_RxCpltCallback	16	static
+main.c:832:6:_Error_Handler	8	static

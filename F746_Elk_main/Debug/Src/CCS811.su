@@ -1,0 +1,4 @@
+CCS811.c:12:6:CCS811_init	40	static
+CCS811.c:21:10:CCS811_CO2_get	32	static
+CCS811.c:29:10:CCS811_TVOCs_get	32	static
+CCS811.c:37:9:environment_get	32	static

@@ -1,0 +1,5 @@
+dwt_lib.c:10:6:init_cpu_cycle	0	static
+dwt_lib.c:17:10:get_cpu_cycle	0	static
+dwt_lib.c:22:7:get_process_time	8	static
+dwt_lib.c:27:7:get_cpu_load	0	static
+dwt_lib.c:31:7:get_process_cycle	0	static

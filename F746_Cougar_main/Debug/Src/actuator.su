@@ -1,0 +1,9 @@
+actuator.c:15:6:servo	40	static
+actuator.c:100:5:encordermotor1	32	static
+actuator.c:204:5:encordermotor2	40	static
+actuator.c:306:6:motor1	16	static
+actuator.c:314:6:motor2	16	static
+actuator.c:322:6:motor3	16	static
+actuator.c:330:6:motor4	16	static
+actuator.c:339:6:map_a	8	static
+actuator.c:343:6:beep	24	static

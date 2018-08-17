@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="リソース &apos;ADC_Filter_test&apos; を削除します" deleteContents="false" description="リソース &apos;ADC_Filter_test&apos; を削除します" element1="/ADC_Filter_test" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1514179815119"/>
+</session>

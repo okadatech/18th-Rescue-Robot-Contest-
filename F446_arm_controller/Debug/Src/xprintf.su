@@ -1,0 +1,15 @@
+xprintf.c:26:6:init_xpritf	0	static
+xprintf.c:30:9:uart_getc	16	static
+xprintf.c:38:6:uart_putc	16	static
+xprintf.c:44:6:uart_puts	8	static
+xprintf.c:51:6:xputc	8	static
+xprintf.c:69:6:xputs	8	static
+xprintf.c:113:6:xvprintf	48	static
+xprintf.c:78:6:xfputs	16	static
+xprintf.c:190:6:xprintf	16	static
+xprintf.c:204:6:xsprintf	20	static
+xprintf.c:224:6:xfprintf	20	static
+xprintf.c:250:6:put_dump	24	static
+xprintf.c:302:5:xgets	24	static
+xprintf.c:333:5:xfgets	16	static
+xprintf.c:364:5:xatoi	16	static
