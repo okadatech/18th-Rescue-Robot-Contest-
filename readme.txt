@@ -1,4 +1,1 @@
-‚»‚ê‚¼‚ê‚ÌPC‚ÌAtollic‚ÉƒCƒ“ƒNƒ‹[ƒh‚µ‚ÄƒfƒoƒbƒO‚Ü‚Å‚·‚é‚±‚Æ‚ª‚Å‚«‚é‚ªA‚»‚ê‚ð‚·‚é‚ÆƒpƒX‚ª•Ï‚í‚Á‚Ä‚µ‚Ü‚¢AƒƒCƒ“»ìŽÒ‚ªƒrƒ‹ƒh
-‚ª‚Å‚«‚È‚­‚È‚éB
-‚È‚Ì‚ÅACƒtƒ@ƒCƒ‹‚âHƒtƒ@ƒCƒ‹‚Í‚È‚é‚×‚­‚È‚çVS‚âƒƒ‚’ ‚ÅŠJ‚¢‚Ä‚Ý‚Ä‚Ù‚µ‚¢B
-i‚Æ‚¢‚Á‚Ä‚àCƒtƒ@ƒCƒ‹‚âHƒtƒ@ƒCƒ‹‚ð•ª‚¯‚Äƒ‰ƒCƒuƒ‰ƒŠ‰»‚ð‚µ‚Ä‚¢‚é‚Ì‚Å‚à‚Ì‚·‚²‚­Œ©‚É‚­‚­‚È‚Á‚½‚¯‚ÇŠæ’£‚Á‚Äj
+18å›žãƒ¬ã‚¹ã‚­ãƒ¥ãƒ¼ãƒ­ãƒœãƒƒãƒˆã‚³ãƒ³ãƒ†ã‚¹ãƒˆã§ä½¿ç”¨ã—ãŸã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã§ã™ã€‚STM32Cubeï¼‹Atollicã§é–‹ç™ºã‚’ã—ã¾ã—ãŸã€‚
